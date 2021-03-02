@@ -1,12 +1,11 @@
 #!/bin/bash 
-
 num=50
 result1=0
 result2=0
 while [[ $num -gt 0 && $result1 -lt 21 && $result2 -lt 21 ]]
 do
 ((num--))
-flipcoin=$((RANDOM%2))
+flipcoin=$((1+RANDOM%2))
 if [ $flipcoin -eq 1 ]
 then
 	echo " It's Heads "
@@ -35,4 +34,7 @@ else
 		diff2=$(($result2-$result1))
 		echo "By difference of " $diff2
 fi
+
+
+
 
