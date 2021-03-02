@@ -1,7 +1,9 @@
 #!/bin/bash 
-declare -A result
-num=20
-while [ $num -gt 0 ]
+
+num=50
+result1=0
+result2=0
+while [[ $num -gt 0 && $result1 -lt 21 && $result2 -lt 21 ]]
 do
 ((num--))
 flipcoin=$((RANDOM%2))
@@ -23,3 +25,14 @@ echo "Total head wins" $result1
 echo
 echo "Tail wins" ${b[@]}
 echo "Total Tail wins" $result2
+if [ $result1 -gt $result2 ]
+then
+	 echo "Head wins 21 times"
+		diff=$(($result1-$result2))
+		echo "By difference of " $diff
+else
+		echo "Tail wins 21 times"
+		diff2=$(($result2-$result1))
+		echo "By difference of " $diff2
+fi
+
